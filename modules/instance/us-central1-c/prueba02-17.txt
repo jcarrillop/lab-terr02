@@ -1,0 +1,68 @@
+resource "google_compute_instance" "prueba02_17" {
+  boot_disk {
+    auto_delete = true
+    device_name = "vm-prueba01"
+
+    initialize_params {
+      image = "https://www.googleapis.com/compute/beta/projects/debian-cloud/global/images/debian-11-bullseye-v20221206"
+      size  = 10
+      type  = "pd-balanced"
+    }
+
+    mode   = "READ_WRITE"
+    source = "https://www.googleapis.com/compute/v1/projects/daxos-recaptcha/zones/us-central1-c/disks/prueba02-17"
+  }
+
+  confidential_instance_config {
+    enable_confidential_compute = false
+  }
+
+  labels = {
+    project = "daxos-recapatcha"
+  }
+
+  machine_type = "e2-micro"
+
+  metadata = {
+    ssh-keys = "javier.carrillo:ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBC4stPOY10fTp7hJpiUSzwuC70mxSs9RV9vsEqv8CPOmA+7Q3SgwhMdhXTS24e79v1wtHG7fUQMIQePI4oHKh9c= google-ssh {\"userName\":\"javier.carrillo@daxosline.com.co\",\"expireOn\":\"2022-12-16T21:16:45+0000\"}\njavier.carrillo:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCdWMqmmIPXrXlx4cNJpNXrK2Ir6KFrmhSKYIbU/wEKmHaoeqifVZU1RmdDiGBgqTZ2VFOoGBNIjf/S6xaSlORqWhGpalOHP9UK63LnXlVioDGzrmHLie5WVd7TE5OBTo0TBl3A43XD5VmkBWOdT9a2WEd2JcvP00VaIfCCEBRh0TtzaOlJtM9NspQ7GJ/Bg4F/vhVgsw01ElBkJmCW/OxLBb4NtjyLMwBh8RSOM+Ew7FOMXvH/W3w4H2uS1uNzbMIH9DOM7Yry2FHsUtV9LGl2C5Zs6RLi2RWyCgg/WFiSzEp3UCte1piSzi0zXtwjcg4kmb8vkCAKwObUKshBg2zp google-ssh {\"userName\":\"javier.carrillo@daxosline.com.co\",\"expireOn\":\"2022-12-16T21:17:01+0000\"}\ntriton21:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCfTcYG/UsXRLr7X3yeTLCzWNhtKruQCFeVbByNUx/SzX9AnVXT3nkG0NqMn1wWSiaZ/FommYZ/eJNCS8okZsG6sSfMQjOLF2PzarH84zgujVC1fw5RM/1C9RjJsAF/KBBCgiNuPaYPMdT4oxsS2NVk4z7R6s6oM9SngVNW0eork+KhJP3rbelosZeiG6wDC9lwI+sIp0JJk0bNA91DdmzZihiy5dlbQKHC9FmVV/TsUTqog8SgnOsPmVhVFH7M1pZvHyvBgUhuw4Sya++0vIOWkzpbZJLP6fGdovW0iBF3XhHWf9gaZ/sQhASfghiYTMZQus2N+ID0NLIXO/A3MuLh triton21"
+  }
+
+  name = "prueba02-17"
+
+  network_interface {
+    access_config {
+      network_tier = "PREMIUM"
+    }
+
+    network            = "https://www.googleapis.com/compute/v1/projects/daxos-recaptcha/global/networks/vpc-dx-recap"
+    network_ip         = "20.120.0.2"
+    stack_type         = "IPV4_ONLY"
+    subnetwork         = "https://www.googleapis.com/compute/v1/projects/daxos-recaptcha/regions/us-central1/subnetworks/sub-vpc-dx-recap-us-central1"
+    subnetwork_project = "daxos-recaptcha"
+  }
+
+  project = "daxos-recaptcha"
+
+  reservation_affinity {
+    type = "ANY_RESERVATION"
+  }
+
+  scheduling {
+    automatic_restart   = true
+    on_host_maintenance = "MIGRATE"
+    provisioning_model  = "STANDARD"
+  }
+
+  service_account {
+    email  = "558254534793-compute@developer.gserviceaccount.com"
+    scopes = ["https://www.googleapis.com/auth/devstorage.read_only", "https://www.googleapis.com/auth/logging.write", "https://www.googleapis.com/auth/monitoring.write", "https://www.googleapis.com/auth/service.management.readonly", "https://www.googleapis.com/auth/servicecontrol", "https://www.googleapis.com/auth/trace.append"]
+  }
+
+  shielded_instance_config {
+    enable_integrity_monitoring = true
+    enable_vtpm                 = true
+  }
+
+  zone = "us-central1-c"
+}
+# terraform import google_compute_instance.prueba02_17 projects/daxos-recaptcha/zones/us-central1-c/instances/prueba02-17

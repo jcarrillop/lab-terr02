@@ -1,0 +1,8 @@
+resource "google_compute_network" "vpc_dx_recap" {
+  auto_create_subnetworks = false
+  mtu                     = 1460
+  name                    = "vpc-dx-recap"
+  project                 = "daxos-recaptcha"
+  routing_mode            = "REGIONAL"
+}
+# terraform import google_compute_network.vpc_dx_recap projects/daxos-recaptcha/global/networks/vpc-dx-recap

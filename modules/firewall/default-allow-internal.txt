@@ -1,0 +1,17 @@
+resource "google_compute_firewall" "default_allow_internal" {
+  allow {
+    protocol = "tcp"
+  }
+
+  allow {
+    protocol = "udp"
+  }
+
+  direction     = "INGRESS"
+  name          = "default-allow-internal"
+  network       = "https://www.googleapis.com/compute/v1/projects/daxos-recaptcha/global/networks/vpc-dx-recap"
+  priority      = 1000
+  project       = "daxos-recaptcha"
+  source_ranges = ["10.160.0.0/20", "20.120.0.0/25"]
+}
+# terraform import google_compute_firewall.default_allow_internal projects/daxos-recaptcha/global/firewalls/default-allow-internal
