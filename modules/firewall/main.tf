@@ -19,7 +19,7 @@ resource "google_compute_firewall" "fr_allow_internal" {
   source_ranges = ["10.10.10.0/24", "10.110.0.0/24"]
 }
 
-resource "google_compute_firewall" "fr-_allow_ssh" {
+resource "google_compute_firewall" "fr_allow_ssh" {
   allow {
     ports    = ["22"]
     protocol = "tcp"
