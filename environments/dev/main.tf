@@ -8,7 +8,7 @@ provider "google" {
 }
 
 module "network" {
-  source  = "../../modules/Network"
+  source  = "../../modules/network"
   project = "${var.project}"
   env     = "${local.env}"
 }
