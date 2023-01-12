@@ -34,7 +34,7 @@ module "instance" {
 }
 
 module "firewall" {
-  source  = "../../modules/firewall"
+  source  = "../../modules/firewal"
   project = "${var.project}"
   subnet  = "${module.network.subnet}"
 }
