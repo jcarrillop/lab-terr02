@@ -63,7 +63,7 @@ steps:
          do
            cd ${dir}
            env=${dir%*/}
-           env=${env#*/}
+           env=${env*/}
            echo ""
            echo "*************** TERRAFOM PLAN ******************"
            echo "******* At environment: ${env} ********"
