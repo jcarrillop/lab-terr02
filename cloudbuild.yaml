@@ -18,14 +18,14 @@ steps:
         cd environments/$BRANCH_NAME
         terraform init
       else
-        for dir in environments/dev/
+        for dir in environments/*/
         do 
           cd ${dir}   
           env=${dir%*/}
           env=${env#*/}
           echo ""
           echo "*************** TERRAFORM INIT ******************"
-          echo "******* At environment: dev ********"
+          echo "******* At environment: * ********"
           echo "*************************************************"
           terraform init || exit 1
           cd ../../
@@ -49,7 +49,7 @@ steps:
           env=${env#*/}  
           echo ""
           echo "*************** TERRAFOM PLAN ******************"
-          echo "******* At environment: ${env} ********"
+          echo "******* At environment: * ********"
           echo "*************************************************"
           terraform plan || exit 1
           cd ../../
