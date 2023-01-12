@@ -43,7 +43,7 @@ resource "google_compute_firewall" "fr_allow_icmp" {
   description   = "Allows ICMP connections from any source to any instance on the network."
   direction     = "INGRESS"
   name          = "fr-${local.network}-allow-icmp"
-  network       = "https://www.googleapis.com/compute/v1/projects/daxos-recaptcha/global/networks/vpc-dx-recap"
+  network       = "${local.network}"
   priority      = 65534
   project       = "${var.project}"
   source_ranges = ["0.0.0.0/0"]
