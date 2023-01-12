@@ -55,7 +55,7 @@ steps:
   - | 
       if [ -d "environments/$BRANCH_NAME/" ]; then
         cd environments/$BRANCH_NAME
-        terraform plan
+        terraform plan -out "planfile"
       else
         for dir in environments/*/
         do 
@@ -66,7 +66,7 @@ steps:
           echo "*************** TERRAFOM PLAN ******************"
           echo "******* At environment: ${env} ********"
           echo "*************************************************"
-          terraform plan || exit 1
+          terraform plan -out "planfile" || exit 1
           cd ../../
         done
       fi 
