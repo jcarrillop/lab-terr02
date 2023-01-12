@@ -33,8 +33,8 @@ module "instance" {
   subnet  = "${module.network.subnet}"
 }
 
-module "firewall" {
-  source  = "../../modules/firewal"
+/* module "firewall" {
+  source  = "../../modules/firewall"
   project = "${var.project}"
   subnet  = "${module.network.subnet}"
-}
+} */
