@@ -1,6 +1,6 @@
 terraform {
   backend "gcs" {
-    bucket = "${var.project}-tfstate"
+    bucket = "neptuno-23-tfstate"
     prefix = "env/dev"
   }
 }
