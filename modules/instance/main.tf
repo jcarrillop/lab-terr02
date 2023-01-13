@@ -84,7 +84,7 @@ resource "google_compute_instance" "prueba02_16" {
     network            = "https://www.googleapis.com/compute/v1/projects/daxos-recaptcha/global/networks/vpc-dx-recap"
     network_ip         = "10.10.10.5"
     stack_type         = "IPV4_ONLY"
-    subnetwork         = env.subnet-01
+    subnetwork         = "${var.subnet}"
     subnetwork_project = "${var.project}"
   }
 
