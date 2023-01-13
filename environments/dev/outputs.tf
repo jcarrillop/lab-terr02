@@ -6,9 +6,9 @@ output "subnet" {
   value = "${module.network.subnet}"
 }
 
-output "firewall_rule" {
+/* output "firewall_rule" {
   value = "${module.firewall.firewall_rule}"
-}
+} */
 
 output "instance_name" {
   value = "${module.instance.instance_name}"
