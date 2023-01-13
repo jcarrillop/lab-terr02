@@ -14,9 +14,9 @@
 
 
 output "instance_name" {
-  value = "${google_compute_instance_from_machine_image.prueba-vmimage.name}"
+  value = "${google_compute_image.prueba-vmimage.name}"
 }
 
-output "external_ip" {
-  value = "${google_compute_instance_from_machine_image.prueba-vmimage.network_interface.0.access_config.0.nat_ip}"
-}
+/* output "external_ip" {
+  value = "${google_compute_image.prueba-vmimage.network_interface.0.access_config.0.nat_ip}"
+} */
