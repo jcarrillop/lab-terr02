@@ -21,15 +21,15 @@ locals {
 resource "google_compute_instance" "prueba-vmimage" {
   provider = google-beta
   name     = "prueba-vmimage"
-  #zone     = "us-west1-a"
+  zone     = "us-west1-a"
   project = "${var.project}"
   machine_type = "f1-micro"
 
-  boot_disk {
+  /* boot_disk {
     initialize_params {
             image = "ubuntu-os-cloud/ubuntu-1804-lts"
     }
-  }
+  } */
 
   network_interface {
    subnetwork = "dev-subnet-01"
