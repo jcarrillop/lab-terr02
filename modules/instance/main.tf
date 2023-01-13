@@ -38,7 +38,11 @@ resource "google_compute_instance" "prueba-vmimage" {
       # Include this section to give the VM an external ip address
     }
   }
+  metadata = {
+    block-project-ssh-keys = true
+    }
 }
+
 
 
 resource "google_compute_machine_image" "image" {
