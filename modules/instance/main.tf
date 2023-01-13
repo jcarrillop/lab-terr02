@@ -114,7 +114,7 @@ resource "google_compute_instance" "prueba-vmimage" {
   tags = ["icmp", "ssh-connect"]
 }
 
-resource "google_compute_machine_image" "prueba-vmimage" {
+resource "google_compute_instance_from_machine_image" "prueba-vmimage" {
   disk_size_gb = 10
 
   guest_os_features {
