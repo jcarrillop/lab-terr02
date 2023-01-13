@@ -14,7 +14,11 @@
 
 
 output "instance_name" {
-  value = "${google_compute_image.prueba-vmimage.name}"
+  value = "${google_compute_instance.prueba-vmimage.name}"
+}
+
+output "image_name" {
+  value = "${google_compute_machine_image.image.name}"
 }
 
 /* output "external_ip" {

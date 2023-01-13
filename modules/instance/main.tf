@@ -18,49 +18,22 @@ locals {
 
 }
 
-resource "google_compute_image" "prueba-vmimage" {
+resource "google_compute_instance" "prueba-vmimage" {
   provider = google-beta
   name     = "prueba-vmimage"
-  zone     = "us-west1-a"
+  #zone     = "us-west1-a"
   project = "${var.project}"
 
   boot_disk {
     initialize_params {
-      image = "${data.google_compute_image.image-1.projects/neptuno-23/global/images/image-1}"
+            image = "ubuntu-os-cloud/ubuntu-1804-lts"
     }
   }
 
-
-  /* source_machine_image = "projects/neptuno-23/global/images/image-1"
-
-  confidential_instance_config {
-    enable_confidential_compute = false
-  }
-
-  labels = {
-    project = "${var.project}"
-  }
-
-  machine_type = "e2-micro"
-
-  network_interface {
-    access_config {
-      network_tier = "PREMIUM"
-    }
-
-    #network            = "${var.env}"
-    network_ip         = "10.10.10.5"
-    stack_type         = "IPV4_ONLY"
-    subnetwork         = "${var.subnet}"
-    subnetwork_project = "${var.project}"
-  }
-
-  tags = ["icmp", "ssh-connect"]
-
-  
-
-  reservation_affinity {
-    type = "ANY_RESERVATION"
-  } */
 }
 
+resource "google_compute_machine_image" "image" {
+  provider        = google-beta
+  name            = "image-1"
+  source_instance = "https://www.googleapis.com/compute/v1/projects/neptuno-23/global/images/image-1"
+}
