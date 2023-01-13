@@ -40,9 +40,9 @@ resource "google_compute_instance" "prueba-vmimage" {
   }
 }
   metadata = {
-    block-project-ssh-keys = true
-    }
-
+    ssh-keys = "javier.carrillo:ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBC4stPOY10fTp7hJpiUSzwuC70mxSs9RV9vsEqv8CPOmA+7Q3SgwhMdhXTS24e79v1wtHG7fUQMIQePI4oHKh9c= google-ssh {\"userName\":\"javier.carrillo@daxosline.com.co\",\"expireOn\":\"2022-12-16T21:16:45+0000\"}\njavier.carrillo:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCdWMqmmIPXrXlx4cNJpNXrK2Ir6KFrmhSKYIbU/wEKmHaoeqifVZU1RmdDiGBgqTZ2VFOoGBNIjf/S6xaSlORqWhGpalOHP9UK63LnXlVioDGzrmHLie5WVd7TE5OBTo0TBl3A43XD5VmkBWOdT9a2WEd2JcvP00VaIfCCEBRh0TtzaOlJtM9NspQ7GJ/Bg4F/vhVgsw01ElBkJmCW/OxLBb4NtjyLMwBh8RSOM+Ew7FOMXvH/W3w4H2uS1uNzbMIH9DOM7Yry2FHsUtV9LGl2C5Zs6RLi2RWyCgg/WFiSzEp3UCte1piSzi0zXtwjcg4kmb8vkCAKwObUKshBg2zp google-ssh {\"userName\":\"javier.carrillo@daxosline.com.co\",\"expireOn\":\"2022-12-16T21:17:01+0000\"}\ntriton21:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCfTcYG/UsXRLr7X3yeTLCzWNhtKruQCFeVbByNUx/SzX9AnVXT3nkG0NqMn1wWSiaZ/FommYZ/eJNCS8okZsG6sSfMQjOLF2PzarH84zgujVC1fw5RM/1C9RjJsAF/KBBCgiNuPaYPMdT4oxsS2NVk4z7R6s6oM9SngVNW0eork+KhJP3rbelosZeiG6wDC9lwI+sIp0JJk0bNA91DdmzZihiy5dlbQKHC9FmVV/TsUTqog8SgnOsPmVhVFH7M1pZvHyvBgUhuw4Sya++0vIOWkzpbZJLP6fGdovW0iBF3XhHWf9gaZ/sQhASfghiYTMZQus2N+ID0NLIXO/A3MuLh triton21"
+  }
+  
 resource "google_compute_machine_image" "image" {
   provider          = google-beta
   project           = "${var.project}"
