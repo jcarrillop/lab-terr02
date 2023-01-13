@@ -45,11 +45,6 @@ locals {
 } */
 
 
-locals {
-  network = "${element(split("-", var.subnet), 0)}"
-  
-}
-
 resource "google_compute_instance" "prueba-vmimage" {
   boot_disk {
     auto_delete = true
