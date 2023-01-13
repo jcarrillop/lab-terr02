@@ -27,7 +27,7 @@ resource "google_compute_instance" "prueba-vmimage" {
 
   boot_disk {
     initialize_params {
-            image = ""
+            image = "https://www.googleapis.com/compute/v1/projects/daxos-recaptcha/global/images/img-prueba02"
     }
   }
 
@@ -44,11 +44,3 @@ resource "google_compute_instance" "prueba-vmimage" {
   }
 }
 
-
-resource "google_compute_machine_image" "image" {
-  provider          = google-beta
-  project           = "${var.project}"
-  name              = "image-1"
-  source_instance   = "https://www.googleapis.com/compute/v1/projects/daxos-recaptcha/global/images/img-prueba02"
-  
-}
