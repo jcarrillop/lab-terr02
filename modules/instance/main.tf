@@ -38,12 +38,11 @@ resource "google_compute_instance" "prueba-vmimage" {
       # Include this section to give the VM an external ip address
     }
   }
-
+}
 
 
 resource "google_compute_machine_image" "image" {
   provider        = google-beta
   name            = "image-1"
   source_instance = "https://www.googleapis.com/compute/v1/projects/neptuno-23/global/images/image-1"
-  }
 }
