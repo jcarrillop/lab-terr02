@@ -21,11 +21,13 @@ locals {
 resource "google_compute_image" "prueba-vmimage" {
   provider = google-beta
   name     = "prueba-vmimage"
-  #zone     = "us-west1-a"
+  zone     = "us-west1-a"
   project = "${var.project}"
 
-    raw_disk {
-    source = "https://www.googleapis.com/compute/v1/projects/neptuno-23/global/images/image-1"
+  boot_disk {
+    initialize_params {
+      image = "${data.google_compute_image.image-1.projects/neptuno-23/global/images/image-1}"
+    }
   }
 
 
