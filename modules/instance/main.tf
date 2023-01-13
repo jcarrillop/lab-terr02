@@ -56,7 +56,7 @@ resource "google_compute_instance" "prueba-vmimage" {
     }
 
     mode   = "READ_WRITE"
-    source = "https://www.googleapis.com/compute/v1/projects/daxos-recaptcha/zones/us-east1-b/disks/prueba02-16"
+    #source = "https://www.googleapis.com/compute/v1/projects/daxos-recaptcha/zones/us-east1-b/disks/prueba02-16"
   }
 
   confidential_instance_config {
@@ -80,7 +80,7 @@ resource "google_compute_instance" "prueba-vmimage" {
       network_tier = "PREMIUM"
     }
 
-    network            = "${var.env}"
+    #network            = "${var.env}"
     network_ip         = "10.10.10.5"
     stack_type         = "IPV4_ONLY"
     subnetwork         = "${var.subnet}"
