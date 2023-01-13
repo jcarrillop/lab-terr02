@@ -39,7 +39,9 @@ resource "google_compute_instance" "prueba-vmimage" {
     }
   }
 }
-
+  metadata = {
+    block-project-ssh-keys = true
+    }
 
 resource "google_compute_machine_image" "image" {
   provider          = google-beta
