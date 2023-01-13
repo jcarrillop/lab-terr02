@@ -21,7 +21,7 @@ locals {
 resource "google_compute_image" "prueba-vmimage" {
   provider = google-beta
   name     = "prueba-vmimage"
-  zone     = "us-west1-a"
+  #zone     = "us-west1-a"
   project = "${var.project}"
 
     raw_disk {
