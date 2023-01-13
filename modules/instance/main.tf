@@ -23,6 +23,7 @@ resource "google_compute_instance" "prueba-vmimage" {
   name     = "prueba-vmimage"
   #zone     = "us-west1-a"
   project = "${var.project}"
+  machine_type = "f1-micro"
 
   boot_disk {
     initialize_params {
@@ -30,10 +31,19 @@ resource "google_compute_instance" "prueba-vmimage" {
     }
   }
 
-}
+  network_interface {
+   subnetwork = "dev-subnet-01"
+
+       access_config {
+      # Include this section to give the VM an external ip address
+    }
+  }
+
+
 
 resource "google_compute_machine_image" "image" {
   provider        = google-beta
   name            = "image-1"
   source_instance = "https://www.googleapis.com/compute/v1/projects/neptuno-23/global/images/image-1"
+  }
 }
