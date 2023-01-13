@@ -29,7 +29,7 @@ resource "google_compute_image" "prueba-vmimage" {
   }
 
 
-  source_machine_image = "projects/neptuno-23/global/images/image-1"
+  /* source_machine_image = "projects/neptuno-23/global/images/image-1"
 
   confidential_instance_config {
     enable_confidential_compute = false
@@ -59,6 +59,6 @@ resource "google_compute_image" "prueba-vmimage" {
 
   reservation_affinity {
     type = "ANY_RESERVATION"
-  }
+  } */
 }
 
