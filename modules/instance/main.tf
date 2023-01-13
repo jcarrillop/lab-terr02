@@ -24,6 +24,11 @@ resource "google_compute_image" "prueba-vmimage" {
   zone     = "us-west1-a"
   project = "${var.project}"
 
+    raw_disk {
+    source = "https://www.googleapis.com/compute/v1/projects/neptuno-23/global/images/image-1"
+  }
+
+
   source_machine_image = "projects/neptuno-23/global/images/image-1"
 
   confidential_instance_config {
