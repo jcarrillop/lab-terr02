@@ -1,4 +1,4 @@
-module "vpc" {
+module "network" {
   source  = "terraform-google-modules/network/google"
   version = "3.3.0"
 
