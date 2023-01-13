@@ -32,7 +32,7 @@ resource "google_compute_instance" "prueba-vmimage" {
   }
 
   network_interface {
-   network    = dev
+   network    = "${local.network}"
    subnetwork = "${var.subnet}"
 
        access_config {
