@@ -33,7 +33,7 @@ resource "google_compute_instance" "prueba-vmimage" {
 
   network_interface {
    network    = "${local.network}"
-   subnetwork = "${var.subnet}"
+   subnetwork = "${element(module.network.subnets_names, 0)}"
 
        access_config {
       # Include this section to give the VM an external ip address
