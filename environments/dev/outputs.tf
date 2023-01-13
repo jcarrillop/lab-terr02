@@ -14,6 +14,6 @@ output "instance_name" {
   value = "${module.instance.instance_name}"
 }
 
-output "external_ip" {
+/* output "external_ip" {
   value = "${module.instance.external_ip}"
-}
+} */
