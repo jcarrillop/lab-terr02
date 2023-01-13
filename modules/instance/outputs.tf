@@ -21,6 +21,6 @@ output "image_name" {
   value = "${google_compute_machine_image.image.name}"
 }
 
-/* output "external_ip" {
-  value = "${google_compute_image.prueba-vmimage.network_interface.0.access_config.0.nat_ip}"
-} */
+output "external_ip" {
+  value = "${google_compute_instance.prueba-vmimage.network_interface.0.access_config.0.nat_ip}"
+}
