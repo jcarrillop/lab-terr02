@@ -24,7 +24,7 @@ resource "google_compute_instance_from_machine_image" "prueba-vmimage" {
   zone     = "us-west1-a"
   project = "${var.project}"
 
-  source_machine_image = "projects/daxos-recaptcha/global/machineImages/img-prueba02"
+  source_machine_image = "projects/neptuno-23/global/images/image-1"
 
   confidential_instance_config {
     enable_confidential_compute = false
