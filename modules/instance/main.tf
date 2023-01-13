@@ -115,23 +115,11 @@ resource "google_compute_instance" "prueba-vmimage" {
 }
 
 resource "google_compute_instance_from_machine_image" "prueba-vmimage" {
-  disk_size_gb = 10
+  provider = google-beta
+  name     = "prueba-vmimage"
+  zone     = "us-west1-a"
 
-  guest_os_features {
-    type = "GVNIC"
-  }
-
-  guest_os_features {
-    type = "UEFI_COMPATIBLE"
-  }
-
-  guest_os_features {
-    type = "VIRTIO_SCSI_MULTIQUEUE"
-  }
-
-  licenses    = ["https://www.googleapis.com/compute/v1/projects/debian-cloud/global/licenses/debian-11-bullseye"]
-  name        = "img-0217-prueba"
-  project     = "daxos-recaptcha"
-  source_disk = "https://www.googleapis.com/compute/v1/projects/daxos-recaptcha/zones/us-central1-c/disks/prueba02-17"
+  source_machine_image = "projects/daxos-recaptcha/global/machineImages/img-prueba02"
 }
+
 # terraform import google_compute_instance.prueba02_16 projects/daxos-recaptcha/zones/us-east1-b/instances/prueba02-16
