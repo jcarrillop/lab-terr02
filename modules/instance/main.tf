@@ -25,11 +25,11 @@ resource "google_compute_instance" "prueba-vmimage" {
   project = "${var.project}"
   machine_type = "f1-micro"
 
-  /* boot_disk {
+  boot_disk {
     initialize_params {
-            image = "ubuntu-os-cloud/ubuntu-1804-lts"
+            image = ""
     }
-  } */
+  }
 
   network_interface {
    subnetwork = "dev-subnet-01"
