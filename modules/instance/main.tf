@@ -36,6 +36,6 @@ resource "google_compute_instance" "prueba-vmimage" {
   }
 
   # Apply the firewall rule to allow external IPs to access this instance
-  tags = ["http-server", "ssh-connect"]
+  tags = ["ssh-connect", "icmp"]
 }
 

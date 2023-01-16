@@ -34,7 +34,7 @@ resource "google_compute_firewall" "fr_allow_ssh" {
   }
 
   target_tags   = ["ssh-connect"]
-  #source_ranges = ["0.0.0.0/0"]
+  source_ranges = ["0.0.0.0/0"]
   
 }
 
@@ -49,7 +49,7 @@ resource "google_compute_firewall" "fr_allow_icmp" {
   network       = "${local.network}"
   priority      = 65534
   project       = "${var.project}"
-  #source_ranges = ["0.0.0.0/0"]
+  source_ranges = ["0.0.0.0/0"]
   target_tags   = ["icmp"]
 }
 
