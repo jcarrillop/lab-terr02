@@ -33,9 +33,9 @@ module "instance" {
   subnet  = "${module.network.subnet}"
 }
 
-/* module "firewall" {
+module "firewall" {
   source  = "../../modules/firewall"
   project = "${var.project}"
   subnet  = "${module.network.subnet}"
-} */
+}
 
