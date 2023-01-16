@@ -16,7 +16,8 @@ resource "google_compute_instance" "prueba-vmimage" {
 
   boot_disk {
     initialize_params {
-            image = "https://www.googleapis.com/compute/v1/projects/daxos-recaptcha/global/images/img-prueba02"
+            image = "https://www.googleapis.com/compute/v1/projects/neptuno-23/global/images/image-1"
+            #image = "https://www.googleapis.com/compute/v1/projects/daxos-recaptcha/global/images/img-prueba02"
     }
   }
 
