@@ -40,4 +40,5 @@ module "redis" {
 module "storage" {
   source  = "../../modules/storage"
   project = "${var.project}"
+  subnet  = "${module.network.subnet}"
 }
